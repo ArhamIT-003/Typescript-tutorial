@@ -24,30 +24,33 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="name"
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      />
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      <button>Submit</button>
-      <div>
-        {data.map((value, index) => (
-          <p key={index}>
-            Name: {value.name}, Email: {value.email}
-          </p>
-        ))}
-      </div>
-    </form>
+    <>
+      <h1>form without using redux</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="name"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <button>Submit</button>
+        <div>
+          {data.map((value, index) => (
+            <p key={index}>
+              Name: {value.name}, Email: {value.email}
+            </p>
+          ))}
+        </div>
+      </form>
+    </>
   );
 };
 

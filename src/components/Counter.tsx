@@ -1,12 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, addByNumber } from "../store/counterSlice";
 import { RootState } from "../store/store";
 
 const Counter = () => {
-  const [counter, setCounter] = useState<number>();
-  const count = useSelector((state: RootState) => state.count);
+  const count = useSelector((state: RootState) => state.counter.count); // Use "counter" instead of "count"
   const dispatch = useDispatch();
+
+  const [inputValue, setInputValue] = useState<string>("");
 
   return (
     <div>
@@ -16,13 +17,11 @@ const Counter = () => {
         Decrement
       </button>
       <input
-        type="text"
-        value={counter}
-        onChange={(e) => {
-          setCounter(Number(e.target.value));
-        }}
+        type="number" // Use "number" type for input
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
       />
-      <button onClick={() => dispatch(addByNumber(counter))}>
+      <button onClick={() => dispatch(addByNumber(Number(inputValue)))}>
         Add by number
       </button>
     </div>

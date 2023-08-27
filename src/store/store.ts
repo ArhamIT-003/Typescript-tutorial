@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import CounterReducer from "./counterSlice";
+import formSlice from "./formSlice";
 
 export const store = configureStore({
-  reducer: CounterReducer,
+  reducer: {
+    counter: CounterReducer,
+    form: formSlice,
+  },
 });
 
 // Define RootState and AppDispatch types
