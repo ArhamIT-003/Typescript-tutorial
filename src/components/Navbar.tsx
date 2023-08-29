@@ -24,7 +24,7 @@ const Navbar = () => {
             variant="outline-primary"
             className="rounded-circle"
             onClick={() => {
-              openToCart;
+              openToCart();
             }}
           >
             <svg
